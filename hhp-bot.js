@@ -1,11 +1,14 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}`);
+});
+
 client.on('message', (message) => {
-  // Check if the message is in the specific channel you want to respond to
   if (message.channel.name === 'inquiry-emails') {
-    // Send a mention to @admin
-    message.channel.send('@admin');
+    console.log(`Received message in the inquiry-emails channel: ${message.content}`);
+    message.channel.send('<@&1180254027364175993>');
   }
 });
 
