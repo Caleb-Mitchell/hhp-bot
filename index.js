@@ -12,10 +12,12 @@ client.once(Events.ClientReady, readyClient => {
 });
 
 
-client.once('messageCreate', (message) => {
+client.on('messageCreate', (message) => {
   if (message.channel.name === 'inquiry-emails') {
-    console.log(`Received message in the inquiry-emails channel`);
-    message.channel.send('@admin');
+    if (message.author.id !== client.user.id) {
+      console.log(`Received message in the inquiry-emails channel`);
+      message.channel.send('@admin');
+    }
   }
 });
 
