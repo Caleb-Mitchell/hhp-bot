@@ -14,7 +14,7 @@ client.once(Events.ClientReady, readyClient => {
 
 client.once('messageCreate', (message) => {
   if (message.channel.name === 'inquiry-emails') {
-    console.log(`Received message in the inquiry-emails channel: ${message.content}`);
+    console.log(`Received message in the inquiry-emails channel`);
     message.channel.send('@admin');
   }
 });
